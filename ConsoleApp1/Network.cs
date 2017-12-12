@@ -57,21 +57,14 @@ namespace ConsoleApp1
         {
             for (int epoch = 0; epoch < numOfEpoch; epoch++)
             {
-                double maxError = 0;
-                DataSet maxErrorSet = dataSets[0];
+//                double maxError = 0;
+//                DataSet maxErrorSet = dataSets[0];
                 for (int i = 0; i < dataSets.Count; i++)
                 {
                     Forward(dataSets[i].Values);
-//                    BackPropagate(dataSets[i].Targets);
-                    var error = MSE(OutputLayer.Select(x => x.Output).ToArray(), dataSets[i].Targets);
-                    if (error > maxError)
-                    {
-                        maxError = error;
-                        maxErrorSet = dataSets[i];
-                    }
+                    BackPropagate(dataSets[i].Targets);
+//                    var error = MSE(OutputLayer.Select(x => x.Output).ToArray(), dataSets[i].Targets);
                 }
-                Forward(maxErrorSet.Values);
-                BackPropagate(maxErrorSet.Targets);
             }
         }
 
