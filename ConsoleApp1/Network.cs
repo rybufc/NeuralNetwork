@@ -20,7 +20,7 @@ namespace ConsoleApp1
         public NeuralNetwork(int inputSize, int[] hiddenSizes, int outputSize, 
             double? learnRate = null, double? momentum= null)
         {
-            LearnRate = learnRate ?? 0.3;
+            LearnRate = learnRate ?? 0.2;
             Momentum = momentum ?? 0.4;
 
             InputLayer = new List<Neuron>();
